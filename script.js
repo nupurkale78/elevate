@@ -154,55 +154,31 @@ tl6.to(".rounded-div-wrapper-6",{
     marginTop: 0,
 })
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Initialize the Leaflet map
-    const map = L.map('map').setView([25.276987, 55.296249], 12); // Coordinates for Dubai
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    L.marker([25.276987, 55.296249])
-        .addTo(map)
-        .bindPopup('Elevate Corporation')
-        .openPopup();
-
-    // Ensure the map resizes correctly
-    window.addEventListener('resize', () => {
-        map.invalidateSize();
-    });
-
-    // Initial resize to ensure map is correctly displayed on load
-    map.invalidateSize();
-
-    // GSAP Scroll Trigger animation
-    let tl7 = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".part-7",
-            start: "50% 50%",
-            end: "300% 50%",
-            pin: true,
-            scrub: 1,
-        }
-    });
-
-    tl7.to("#demo", {
-        bottom: "7%",
-    })
-    .to(".our-work-txt-div", {
-        height: "60vh",
-    }, 'height')
-    .to(".our-work-txt", {
-        height: "60vh",
-    }, 'height')
-    .to("#our", {
-        left: "0%",
-    }, 'height')
-    .to("#work", {
-        right: "0%",
-    }, 'height')
-    .to(".scroll-work", {
-        marginTop: "-300%",
-    });
-
+let tl7 = gsap.timeline({
+    scrollTrigger:{
+        trigger: ".part-7",
+        start:"50% 50%",
+        end: "300% 50%",
+        pin:true,
+        // markers: true,
+        scrub: 1,
+    },  
 });
+tl7.to("#demo",{
+    bottom:"7%",
+})
+tl7.to(".our-work-txt-div",{
+    height:"60vh",
+}, 'height')
+tl7.to(".our-work-txt",{
+    height:"60vh",
+}, 'height')
+tl7.to("#our",{
+    left:"0%",
+}, 'height')
+tl7.to("#work",{
+    right:"0%",
+}, 'height')
+tl7.to(".scroll-img",{
+    marginTop:"-300%",
+})
